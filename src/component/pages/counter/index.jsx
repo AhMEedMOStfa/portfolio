@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from './button';
+import Button from '../button/button';
 
 const Home = (props) => {
     console.log(props);
