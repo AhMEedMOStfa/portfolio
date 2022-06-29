@@ -3,8 +3,8 @@ import NavbarComponent from "./navbar";
 import About from "./about";
 import Counter from "./counter";
 import Home from "./home";
-import Products from "./shop/Products";
-import Product from './shop/Product'
+import Products from "./shop/products/Products";
+import Product from './shop/product/Product'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const Components = () => {
