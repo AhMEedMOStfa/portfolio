@@ -9,10 +9,14 @@ const TodoForm = ({ addTodoItem })=> {
   const submitTodo = (e) => {
     e.preventDefault();
     // console.log(e);
-    addTodoItem({title,content});
+    
     if(!title || !content)
     {
       alert('enter valid task');
+    }
+    else
+    {
+      addTodoItem({title,content});
     }
     setTitle("");
     setContent("");
