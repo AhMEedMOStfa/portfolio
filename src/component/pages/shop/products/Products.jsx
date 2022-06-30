@@ -26,9 +26,9 @@ const Products = () => {
         {products.map((product, i) => {
           let prodTiltle = product.title.slice(0,30);
           return (
-                <div className="col-md-3">
-                <Link className="text-decoration-none text-black" to = {`/products/product/${product.id}`} key={i}>
-                 <div className="shadow-lg item text-center bg-white py-3">
+                <div className="col-md-3"key={i}>
+                <Link className="text-decoration-none text-black" to = {`/products/product/${product.id}`} >
+                 <div className="shadow-lg item text-center bg-white py-3" >
                    <img src={product.image}  alt="" />
                    <p>{prodTiltle}</p>
                    <p>{product.price} $</p>

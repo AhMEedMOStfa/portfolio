@@ -1,24 +1,29 @@
+import React, { useState } from "react";
+const Button = ({supportna,Support}) => {
+  const [money , setMoney] = useState(0);
 
-const button = (props) => {
-    const incrementCounter = ()=>{
-        props.setCounter(props.counter+1);
+  const submitMoney = (e)=>{
+    e.preventDefault();
+    if(money>=0)
+    {
+      supportna(money);
     }
-    const decrementCounter = ()=>{
-       if(props.counter)
-       {
-        props.setCounter(props.counter-1);
-       }
-       else{
-        props.setCounter(0);
-       }
+    else
+    {
+      alert('plz support us')
     }
+  }
+
   return (
-    <div className="text-center">
-        <h2>Counter : {props.counter}</h2>
-        <button className="btn mx-3 btn-primary" onClick={incrementCounter}>{props.incr}</button>
-        <button className="btn btn-danger" onClick={decrementCounter}>{props.decr}</button>
+    <div className="w-25 ms-auto">
+        <form className="form-floating mb-3" onSubmit={submitMoney}>
+        <input type="text" className="form-control mb-4" id="floatingInput" placeholder="name@example.com"
+         name="money" value={money} onChange={(e) => setMoney(e.target.value)}/>
+        <label htmlFor="floatingInput">Support Us $</label>
+        <button className="btn mx-3 btn-primary" type="submit">{Support}</button>
+       </form>
     </div>
   )
 }
 
-export default button
+export default Button
