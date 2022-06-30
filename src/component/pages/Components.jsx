@@ -6,6 +6,7 @@ import Home from "./home";
 import Products from "./shop/products/Products";
 import Product from './shop/product/Product'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Todo from "./todo/todocomp/Todo";
 
 const Components = () => {
   return (
@@ -17,6 +18,7 @@ const Components = () => {
           <Route path="/about" element={<About />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/todo" element={<Todo />} />
           <Route path="/products/product/:id" element={<Product/>} />
         </Routes>
       </Router>
