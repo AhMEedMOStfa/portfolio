@@ -1,11 +1,11 @@
 import {SUPPORT_US} from './support-action'
-const intialState = 0;
+const intialState =0;
 
-export const supportReducer = (state = intialState,action)=>{
+export const supportReducer = (state = 0,action)=>{
     switch (action.type) {
         case SUPPORT_US:
-            state+=action.payload;
-             return state;
+            
+             return state+=action.payload;
         default:
            return state;
     }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import {Spinner} from 'react-bootstrap'
-import productstyle from './Productstyle.css'
 const Product = () => {
 
     const urlParams = useParams();

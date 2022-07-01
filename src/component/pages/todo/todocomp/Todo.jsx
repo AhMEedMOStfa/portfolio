@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux/es/exports";
 import { addTodo } from "../../../Redux/todo-redux/todo-action";
 import { deleteTodo } from "../../../Redux/todo-redux/todo-action";
 const Todo = () => {
-  const todos = useSelector((state) =>state.todoReducer.todos);
+  const todos = useSelector((state) =>state.combine.todoReducer.todos);
   const dispatch = useDispatch();
   // console.log(todos);
 

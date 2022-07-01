@@ -1,29 +1,48 @@
 import React, { useState } from "react";
-const Button = ({supportna,Support}) => {
-  const [money , setMoney] = useState(0);
+import { useSelector, useDispatch } from "react-redux";
+import { supportUs } from "../../Redux/support-redux/support-action";
 
-  const submitMoney = (e)=>{
-    e.preventDefault();
-    if(money>=0)
+const Button = () => {
+  const value = useSelector((state) => state.combine.supportReducer);
+  const dispatch = useDispatch();
+  const [money, setMoney] = useState(0);
+  const supportna = (support)=>{
+    // console.log(support);
+    if(money>0 || Number(money))
     {
-      supportna(money);
+      dispatch(supportUs(support));
+      setMoney(0);
     }
     else
     {
-      alert('plz support us')
+      alert('enter valid number')
     }
   }
 
   return (
-    <div className="w-25 ms-auto">
-        <form className="form-floating mb-3" onSubmit={submitMoney}>
-        <input type="text" className="form-control mb-4" id="floatingInput" placeholder="name@example.com"
-         name="money" value={money} onChange={(e) => setMoney(e.target.value)}/>
-        <label htmlFor="floatingInput">Support Us $</label>
-        <button className="btn mx-3 btn-primary" type="submit">{Support}</button>
-       </form>
-    </div>
-  )
-}
+    <div className="w-50 mx-auto " >
+      <h3 className="text-center fs-5 text-danger mb-5"> Support Using React Redux</h3>
+     <h2 className="text-center">💵{value} $💵</h2>
+      <div className="form-floating mb-3">
+        <input
+          className="form-control"
+          id="floatingInput"
+          value={money}
+          onChange={(e) => setMoney(e.target.value)}
+        />
+        <label htmlFor="floatingInput">Support Us</label>
+      </div>
+      <div className="text-center">
 
-export default Button
+      <button
+        className="btn btn-success "
+        onClick={() =>supportna(Number(money)||0) }
+      >
+        Support Us
+      </button>
+      </div>
+    </div>
+  );
+};
+
+export default Button;

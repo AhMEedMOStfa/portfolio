@@ -1,5 +1,4 @@
 import Components from './component/pages/Components';
-import logo from './logo.svg';
 
 function App() {
   return (

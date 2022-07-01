@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {Spinner} from 'react-bootstrap';
-import products from './Products.css'
 
 const Products = () => {
   useEffect(() => {
