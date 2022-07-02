@@ -1,5 +1,5 @@
 import Components from './component/pages/Components';
-
+import * as React from 'react';
 function App() {
   return (
     <div className="App">

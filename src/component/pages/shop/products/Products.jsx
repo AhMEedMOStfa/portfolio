@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {Spinner} from 'react-bootstrap';
-
+import "./Products.css"
 const Products = () => {
   useEffect(() => {
     fetchData();
@@ -28,7 +28,7 @@ const Products = () => {
                 <div className="col-md-3"key={i}>
                 <Link className="text-decoration-none text-black" to = {`/products/product/${product.id}`} >
                  <div className="shadow-lg item text-center bg-white py-3" >
-                   <img src={product.image}  alt="" />
+                   <img src={product.image} className='img'  alt="" />
                    <p>{prodTiltle}</p>
                    <p>{product.price} $</p>
                  </div>

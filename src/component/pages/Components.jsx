@@ -7,7 +7,7 @@ import Products from "./shop/products/Products";
 import Product from './shop/product/Product'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Todo from "./todo/todocomp/Todo";
-
+import Register from "./register";
 const Components = () => {
   return (
     <>
@@ -19,6 +19,7 @@ const Components = () => {
           <Route path="/support" element={<Support />} />
           <Route path="/products" element={<Products />} />
           <Route path="/todo" element={<Todo />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/products/product/:id" element={<Product/>} />
         </Routes>
       </Router>
