@@ -1,31 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {Spinner} from 'react-bootstrap';
 import "./Products.css"
+import { useSelector,useDispatch } from "react-redux";
+import { getProductsItems } from "../../../Redux/productsSlice/productSlice";
+
 const Products = () => {
+
+  const dispatch=useDispatch()
   useEffect(() => {
-    fetchData();
+    dispatch(getProductsItems());
   }, []);
-
-  const fetchData = () => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setProduct(json));
-  };
-
-  const [products, setProduct] = useState([]);
-  // console.log(products);
+  
+  const {products,loading} = useSelector((state)=>state.productsSlice);   
   return (
     <div className="container my-4">
       {
-        products.length
+        !loading
         ?
         (
           <div className="row g-3">
         {products.map((product, i) => {
           let prodTiltle = product.title.slice(0,30);
           return (
-                <div className="col-md-3"key={i}>
+            <div className="col-md-3"key={i}>
                 <Link className="text-decoration-none text-black" to = {`/products/product/${product.id}`} >
                  <div className="shadow-lg item text-center bg-white py-3" >
                    <img src={product.image} className='img'  alt="" />
@@ -56,3 +54,10 @@ const Products = () => {
 };
 
 export default Products;
+
+// fetchData();
+// const fetchData = () => {
+//   fetch("https://fakestoreapi.com/products")
+//     .then((res) => res.json())
+//     .then((json) => setProduct(json));
+// };
